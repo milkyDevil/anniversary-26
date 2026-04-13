@@ -1,14 +1,23 @@
 const terminal = document.getElementById("terminal");
 
 const messages = [
-  "sudo access-love --pappu",
+  "Initializing Anniversary Build...",
+  "...",
+  "Boot sequence started...",
+  "Loading modules: 12%",
+  "Loading modules: 37%",
+  "Loading modules: 68%",
+  "Loading modules: 92%",
+  "Loading modules: 100%",
+  "...",
+  "sudo access-love --paps",
   "Access granted ❤️",
   "...",
-  "Booting LoveOS...",
+  "Booting LoveOS v15.0.0...",
   "...",
-  "Loading memory...",
+  "Loading memory modules...",
   "...",
-  "Accessing: 22-04-2011",
+  "Accessing archive: 22-04-2011",
   "...",
   "Event detected:",
   "He kissed me.",
@@ -19,7 +28,7 @@ const messages = [
   "Response:",
   '"Okay."',
   "...",
-  "LoveOS initialized ❤️",
+  "LoveOS initialized successfully ❤️",
   "-----------------------------",
   "Running diagnostics...",
   "...",
@@ -27,41 +36,43 @@ const messages = [
   "- Fights",
   "- Overthinking",
   "...",
-  "Applying rules...",
+  "Applying custom rules...",
   "Never stop talking",
-  "Angry words = invalid",
+  "Angry words = invalid input",
   "Trust > everything",
   "...",
-  "System stable.",
+  "System stabilized.",
   "-----------------------------",
-  "Loading Pappu module...",
+  "Loading core module: Paps",
   "...",
-  "Skills:",
-  "Can learn anything",
-  "100% chill",
+  "Capabilities:",
+  "- Can learn anything",
+  "- 100% chill human",
   "...",
-  "Effect:",
-  "My anxiety ↓",
-  "My peace ↑",
+  "System impact:",
+  "Anxiety ↓",
+  "Peace ↑",
   "...",
   "-----------------------------",
   "v12.0.0 detected...",
   "Year: 2021",
   "...",
-  "Status: Wife 💍",
-  "No uninstall option",
+  "Status update: Wife 💍",
+  "Uninstall option: Disabled",
   "...",
   "-----------------------------",
   "System stats:",
-  "Uptime: 14+ years",
+  "Uptime: 15 years",
   "Downtime: 0",
   "...",
-  "Final result...",
+  "Final evaluation...",
   "...",
+  "Result:",
   "You are my default setting ❤️",
   "...",
-  "Happy Anniversary Pappu",
-  "No resets. No refunds.",
+  "Happy Anniversary Paps",
+  "v15.0.0 – Stable Release",
+  "No resets. No replacements. No refunds.",
   "...",
   "--------------------------------",
   "Press anywhere to restart ❤️",
@@ -121,7 +132,7 @@ function typeLine() {
 
   const prompt = document.createElement("span");
   prompt.className = "prompt";
-  prompt.textContent = "pappu@loveos:~$";
+  prompt.textContent = "paps@loveos:~$";
 
   const text = document.createElement("span");
 
@@ -157,7 +168,7 @@ function addCursor() {
 
   const prompt = document.createElement("span");
   prompt.className = "prompt";
-  prompt.textContent = "pappu@loveos:~$";
+  prompt.textContent = "paps@loveos:~$";
 
   const cursor = document.createElement("span");
   cursor.className = "cursor";
