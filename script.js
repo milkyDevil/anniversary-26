@@ -84,9 +84,19 @@ let fastMode = false;
 let finished = false;
 
 /* 🔊 Sound */
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let audioCtx;
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+}
 
 function playTick() {
+  if (!audioCtx) return;
   const osc = audioCtx.createOscillator();
   const gain = audioCtx.createGain();
 
@@ -101,7 +111,17 @@ function playTick() {
 }
 
 /* 👆 Tap behavior */
+let started = false;
+
 document.body.addEventListener("click", () => {
+  initAudio();
+  if (!started) {
+    started = true;
+    terminal.innerHTML = "";
+    typeLine();
+    return;
+  }
+
   if (finished) {
     restart();
   } else {
@@ -140,10 +160,13 @@ function typeLine() {
   line.appendChild(text);
   terminal.appendChild(line);
 
+  terminal.scrollTop = terminal.scrollHeight;
+
   let charIndex = 0;
 
   const typing = setInterval(() => {
     text.textContent += lineText[charIndex];
+    terminal.scrollTop = terminal.scrollHeight;
     playTick();
 
     charIndex++;
@@ -176,6 +199,20 @@ function addCursor() {
   line.appendChild(prompt);
   line.appendChild(cursor);
   terminal.appendChild(line);
+  terminal.scrollTop = terminal.scrollHeight;
 }
 
-typeLine();
+function showStartMessage() {
+  const line = document.createElement("div");
+  line.className = "line";
+  const prompt = document.createElement("span");
+  prompt.className = "prompt";
+  prompt.textContent = "Click anywhere to initialize system...";
+  const cursor = document.createElement("span");
+  cursor.className = "cursor";
+  line.appendChild(prompt);
+  line.appendChild(cursor);
+  terminal.appendChild(line);
+}
+
+showStartMessage();
