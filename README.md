@@ -4,7 +4,7 @@ LoveOS Terminal Animation.
 
 ## Getting Started
 
-Simply open `loveos.html` in any web browser to view the interactive typing terminal animation.
+Simply open `index.html` in any web browser to view the interactive typing terminal animation.
 
 ## Features
 
